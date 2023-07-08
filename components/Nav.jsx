@@ -22,19 +22,20 @@ const Nav = () => {
     }, [])
 
     return (
-        <nav className="flex-between px-24 lg:px-48 py-4 font-inter bg-zinc-800">
+        <nav className="flex-between lg:px-48 px-20 pt-2 font-inter">
             
             <Link href="/">
                 <div className="flex-center flex-row gap-4">
-                    {/* <Image src="/to-do-logo.png" width={97} height={60} alt="to do logo" /> */}
-                    <h1 className="head_text"><span className="text-orange-500">| </span>FlavorBOT</h1>
+                    <Image src="/flavorbot-logo.webp" height={50} width={270} alt="flavorbot logo" />
                 </div>
             </Link>
 
             {session?.user ?
-            <div className="flex-center flex-row gap-4">
-                <div className="text-white text-base font-bold">Welcome back, <span className="text-orange-500">{session.user.name}</span></div>
-                <Image src={session.user.image} width={40} height={40} className="rounded-full" alt="user img" />
+            <div className="flex-center flex-row gap-6">
+                <div className="sm:flex items-center gap-3 hidden"> 
+                    <div className="orange_gradient text-large font-bold">{session.user.name}</div>
+                    <Image src={session.user.image} width={40} height={40} className="rounded-full" alt="user img" />
+                </div>
                 <button className="sign_out_btn" onClick={signOut}>Sign Out</button>
             </div>
             : 

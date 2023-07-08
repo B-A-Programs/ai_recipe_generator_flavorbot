@@ -11,11 +11,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <Provider>
-        <body className=''>
+        <body className="p-3 h-screen bg-gradient-to-b from-stone-100 to-stone-300 bg-cover">
 
           <Nav />
-
-          <hr className='bg-gray-700 h-0.5 border-none' />
 
           { children }
 
