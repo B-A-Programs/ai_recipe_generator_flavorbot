@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@media screen and (max-width: 640px) {
+  .main {
+    padding: 0;
+  }
+}
+
+
+body {
+  background-color: rgb(32, 32, 32);
+}
+
+/* Tailwind Styles */
+
+.sign_out_btn {
+  @apply w-36 gap-4 h-10 rounded-full border border-white bg-orange-500 py-1.5 px-5 text-stone-200 hover:text-orange-500 hover:bg-white text-base font-bold transition-all text-center font-inter flex items-center justify-center;
+}
+
+.sign_in_btn {
+  @apply w-36 gap-4 h-10 rounded-full border border-orange-600 bg-slate-200 py-1.5 px-5 text-orange-500 hover:text-white hover:bg-orange-500 text-base font-bold transition-all text-center font-inter flex items-center justify-center;
+}
+
+.head_text {
+  @apply text-slate-200 font-extrabold text-3xl;
+}
+
+.head_title {
+  @apply text-slate-200 font-inter font-semibold text-3xl sm:text-5xl;
+  line-height: 3.5rem;
+}
+
+.error {
+  @apply bg-red-500 border-red-700 border text-red-800 text-base font-bold p-3;
+}
+
+.search_input {
+  @apply block w-full rounded-md border border-gray-200 bg-white py-2.5 font-satoshi pl-5 pr-12 text-sm shadow-lg font-medium focus:border-black focus:outline-none focus:ring-0;
+}
+
+.glassmorphism {
+  @apply rounded-xl border border-gray-200 bg-zinc-200 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur p-5;
+}
+
+/* Form Component */
+.form_input {
+  @apply w-full flex rounded-2xl mt-2 p-3 text-sm text-orange-500 bg-stone-800 outline-1;
+}
+
+/* Nav Component */
+.logo_text {
+  @apply max-sm:hidden font-satoshi font-semibold text-lg text-black tracking-wide;
+}
+
+/* PromptCard Component */
+.prompt_card {
+  @apply flex-1 break-inside-avoid rounded-lg border border-gray-300 bg-white/20 bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter md:w-[360px] w-full h-fit;
+}
+
+.flex-center {
+  @apply flex justify-center items-center;
+}
+
+.flex-start {
+  @apply flex justify-start items-start;
+}
+
+.flex-end {
+  @apply flex justify-end items-center;
+}
+
+.flex-between {
+  @apply flex justify-between items-center;
+}
