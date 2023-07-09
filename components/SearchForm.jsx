@@ -24,7 +24,11 @@ const SearchManufacturer = () => {
         ))
 
     const initRecipe = async () => {
-        const response = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.NEXT_PUBLIC_SPOONACULAR_API_KEY}&query=${query}&number=6&addRecipeInformation=true&cuisine=${cuisine}`)
+        let response
+        if(cuisine === "") 
+            response = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.NEXT_PUBLIC_SPOONACULAR_API_KEY}&query=${query}&number=6&addRecipeInformation=true`)
+        else
+            response = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.NEXT_PUBLIC_SPOONACULAR_API_KEY}&query=${query}&number=6&addRecipeInformation=true&cuisine=${cuisine}`)
 
         const result = await response.json()
 
@@ -34,6 +38,8 @@ const SearchManufacturer = () => {
             return;
         }
 
+        console.log(await result)
+
         setRecipe(await result.results[(Math.floor(Math.random() * result.results.length))])
     }
 
@@ -41,8 +47,8 @@ const SearchManufacturer = () => {
         e.preventDefault();
         setMessage('');
 
-        if (query === "" || cuisine === "") {
-            setMessage('Please fill in all the fields.');
+        if (query === "") {
+            setMessage('Please fill in the recipe field the fields.');
             return;
         }
 
