@@ -1,13 +1,19 @@
 import { Dialog, Transition } from '@headlessui/react'
 import Image from 'next/image'
 import { Fragment } from 'react'
+import ReactMarkdown from 'react-markdown';
 
 const RecipeModalSave = ({ recipe, setRecipe }) => {
   const unfilteredIngredients = recipe.analyzedInstructions[0].steps.map((step) => (step.ingredients.map((ingredient) => (ingredient.name)))).flat()
 
-  /// Remove duplicates from ingredients array
-  const ingredients = [...new Set(unfilteredIngredients)]
-  const instructions = recipe.analyzedInstructions[0].steps.map((step) => (step.step))
+  /// Remove duplicates from ingredients array and transform to string
+  const ingredientsArray = [...new Set(unfilteredIngredients)]
+  const ingredients = ingredientsArray.map((ingredient) => (ingredient.charAt(0).toUpperCase() + ingredient.slice(1))).toString().replace(/,/g, ', ')
+
+  /// Transform to instructions to markdown string
+  const instructionsArray = recipe.analyzedInstructions[0].steps.map((step) => (step.step))
+  const instructions = instructionsArray.map((instruction, index) => (`**Step ${index + 1}:** ` + instruction.charAt(0).toUpperCase() + instruction.slice(1))).toString().replaceAll(',**', '\n\n**')
+
   const image = recipe.image
   const title = recipe.title
 
@@ -32,7 +38,7 @@ const RecipeModalSave = ({ recipe, setRecipe }) => {
                         enterFrom="opacity-0 scale-95" enterTo="opacity-100 scale-100" leave="ease-in duration-200"
                         leaveFrom="opacity-100 scale-100" leaveTo="opacity-0 scale-95"
                     >
-                        <Dialog.Panel className="relative w-2/5 max-h-[90vh] overflow-y-auto tarnsform rounded-2xl bg-white p-6 text-left shadow-gray-500 shadow-xl transition-all flex flex-col gap-5">
+                        <Dialog.Panel className="relative w-1/2 overflow-x-auto max-h-[90vh] overflow-y-auto tarnsform rounded-2xl bg-white p-6 text-left shadow-gray-500 shadow-xl transition-all flex flex-col gap-5">
                             <button type="button" onClick={() => setRecipe([])} className='absolute top-2 right-2 z-10 w-fit p-2 bg-amber-500 rounded-full'>
                                 <Image src="/close.png" alt="close" width={20} height={20} className='object-contain' />
                             </button>
@@ -49,11 +55,11 @@ const RecipeModalSave = ({ recipe, setRecipe }) => {
                                 </h2>
 
                                 <div className='mt-3 flex flex-wrap gap-4 capitalize text-stone-700'>
-                                    <b>Ingredients: </b>{ingredients.map((ingredient) => (<>{`${ingredient}, `}</>))}
+                                    <b>Ingredients: </b>{ingredients}
                                 </div>
 
                                 <div className='mt-3 flex flex-col gap-3 text-stone-700'>
-                                    <b>Instructions:<br /> </b>{instructions.map((instruction, index) => (<div><span className='font-semibold'>{`Step ${index + 1}: `}</span>{`${instruction}`}</div>))}
+                                    <b>Instructions: </b> <div><ReactMarkdown>{instructions}</ReactMarkdown></div>
                                 </div>
 
                                 <div className='flex-between mt-6'>
