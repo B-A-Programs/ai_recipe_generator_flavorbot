@@ -15,13 +15,16 @@ body {
   background-color: rgb(32, 32, 32);
 }
 /* Tailwind Styles */
-
 .sign_out_btn {
   @apply w-36 gap-4 h-12 rounded-full bg-orange-500 py-1.5 px-5 text-stone-200 hover:text-orange-500 hover:font-extrabold  hover:bg-white text-base font-bold transition-all text-center font-inter flex items-center justify-center;
 }
 
 .sign_in_btn {
   @apply w-36 gap-4 h-12 rounded-full bg-orange-500 text-white py-1.5 px-5 hover:text-orange-500 hover:bg-stone-100 hover:font-extrabold text-base font-bold transition-all text-center font-inter flex items-center justify-center;
+}
+
+.desc {
+  @apply text-lg text-gray-500 font-inter font-semibold py-6;
 }
 
 .head_text {
@@ -78,4 +81,17 @@ body {
 
 .flex-between {
   @apply flex justify-between items-center;
+}
+
+
+.search-cuisine__input {
+  @apply w-[18rem] h-14 pl-6 p-4 rounded-full max-sm:rounded-full bg-slate-100 outline-none cursor-pointer text-base font-semibold;
+}
+
+.search-cuisine__option {
+  @apply cursor-default select-none py-2 pl-10 pr-4;
+}
+
+.search-cuisine__options {
+  @apply absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm;
 }

@@ -1,3 +1,4 @@
+import Footer from '@components/Footer'
 import Nav from '@components/Nav'
 import Provider from '@components/Provider'
 import '@styles/globals.css'
@@ -11,12 +12,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <Provider>
-        <body className="p-3 h-screen bg-gradient-to-b from-stone-100 to-stone-300 bg-cover">
+        <body className="p-3 h-screen bg-gradient-to-b from-stone-100 to-stone-300 bg-cover flex flex-col">
 
           <Nav />
 
           { children }
 
+          <Footer />
         </body>
       </Provider>
     </html>
