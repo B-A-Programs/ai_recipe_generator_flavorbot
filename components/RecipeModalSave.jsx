@@ -1,9 +1,13 @@
 import { Dialog, Transition } from '@headlessui/react'
+import { useSession } from 'next-auth/react';
 import Image from 'next/image'
-import { Fragment } from 'react'
+import { Fragment, useState } from 'react'
 import ReactMarkdown from 'react-markdown';
 
-const RecipeModalSave = ({ recipe, setRecipe }) => {
+const RecipeModalSave = ({ recipe, setRecipe, setMessage }) => {
+  const { data: session } = useSession();
+  const [saved, setSaved] = useState(false);
+
   const unfilteredIngredients = recipe.analyzedInstructions[0].steps.map((step) => (step.ingredients.map((ingredient) => (ingredient.name)))).flat()
 
   /// Remove duplicates from ingredients array and transform to string
@@ -17,8 +21,26 @@ const RecipeModalSave = ({ recipe, setRecipe }) => {
   const image = recipe.image
   const title = recipe.title
 
-  const handleSave = () => {
+  const handleSave = async () => {
+    try {
+        const response = await fetch("/api/recipe/new", {
+            method: "POST",
+            body: JSON.stringify({
+                ingredients: ingredients,
+                title: title,
+                instructions: instructions,
+                image: image,
+                userId: session?.user.id,
+            })
+        })
 
+        if(response.ok) {
+            setSaved(true)
+        }
+    } catch (error) {
+        console.log(error)
+        setRecipe([])
+    } 
   }
 
   return (
@@ -67,8 +89,8 @@ const RecipeModalSave = ({ recipe, setRecipe }) => {
                                         Original Recipe
                                     </a>
 
-                                    <button onClick={handleSave} className='bg-green-700 px-4 py-2 text-white rounded-xl'>
-                                        Save
+                                    <button onClick={handleSave} className={`${saved ? 'bg-green-600' : 'bg-green-700'} px-4 py-2 text-white rounded-xl`}>
+                                        {saved ? "Saved!" : "Save Recipe"}
                                     </button>
                                 </div>
                             </div>

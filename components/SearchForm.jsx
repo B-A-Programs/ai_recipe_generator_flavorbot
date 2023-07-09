@@ -73,7 +73,7 @@ const SearchManufacturer = () => {
                 </div>
             }
 
-            {recipe?.length !== 0 && recipe != undefined && <RecipeModalSave recipe={recipe} setRecipe={setRecipe} />}
+            {recipe?.length !== 0 && recipe != undefined && <RecipeModalSave recipe={recipe} setRecipe={setRecipe} setMessage={setMessage} />}
 
             {message && <div className='mt-16 error'>{message}</div>}
         </>
