@@ -33,7 +33,7 @@ const Nav = () => {
             {session?.user ?
             <div className="flex-center flex-row gap-6">
                 <div className="sm:flex items-center gap-3 hidden"> 
-                    <div className="orange_gradient text-large font-bold">{session.user.name}</div>
+                    <Link href={`/recipes`} className="orange_gradient font-bold px-4 transition-all hover:text-orange-500">View saved recipes</Link>
                     <Image src={session.user.image} width={40} height={40} className="rounded-full" alt="user img" />
                 </div>
                 <button className="sign_out_btn" onClick={signOut}>Sign Out</button>

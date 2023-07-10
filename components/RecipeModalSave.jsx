@@ -1,6 +1,7 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { useSession } from 'next-auth/react';
 import Image from 'next/image'
+import Link from 'next/link';
 import { Fragment, useState } from 'react'
 import ReactMarkdown from 'react-markdown';
 
@@ -85,11 +86,11 @@ const RecipeModalSave = ({ recipe, setRecipe, setMessage }) => {
                                 </div>
 
                                 <div className='flex-between mt-6'>
-                                    <a href={`${recipe.sourceUrl}`} className='bg-blue-600 px-4 py-2 text-white rounded-xl'>
+                                    <Link href={`${recipe.sourceUrl}`} target="_blank" className='bg-blue-600 px-4 py-2 text-white rounded-xl'>
                                         Original Recipe
-                                    </a>
+                                    </Link>
 
-                                    <button onClick={handleSave} className={`${saved ? 'bg-green-600' : 'bg-green-700'} px-4 py-2 text-white rounded-xl`}>
+                                    <button onClick={handleSave} className={`${saved ? 'bg-green-600' : 'bg-yellow-500'} px-4 py-2 text-white rounded-xl`}>
                                         {saved ? "Saved!" : "Save Recipe"}
                                     </button>
                                 </div>
