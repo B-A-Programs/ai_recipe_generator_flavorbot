@@ -25,7 +25,7 @@ export default function Home() {
         <div className="flex-center flex-wrap gap-12 py-6">
             {recipes ? 
             recipes.map((recipe) => (
-              <RecipeCard title={recipe.title} image={recipe.image} ingredients={recipe.ingredients} instructions={recipe.instructions} />
+              <RecipeCard title={recipe.title} image={recipe.image} ingredients={recipe.ingredients} instructions={recipe.instructions} recipeId={recipe._id} refresh={fetchRecipes} />
             ))
             : <p className='flex-center mt-32 text-gray-600 text-xl font-bold'>Looks like you don't have any saved recipes yet</p>
             }

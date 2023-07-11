@@ -4,7 +4,17 @@ import Link from 'next/link';
 import { Fragment, useState } from 'react'
 import ReactMarkdown from 'react-markdown';
 
-const RecipeModalEdit = ({ title, instructions, ingredients, image, handleClose }) => {
+const RecipeModalEdit = ({ title, instructions, ingredients, image, handleClose, recipeId, refresh }) => {
+  const handleDelete = async () => {
+    fetch(`/api/recipe/delete`, {
+        method: "POST",
+        body: JSON.stringify({recipeId: recipeId }),
+    })
+
+    refresh()
+    handleClose()
+  }
+
   return (
     <>
         <Transition appear show={true} as={Fragment}>
@@ -47,12 +57,12 @@ const RecipeModalEdit = ({ title, instructions, ingredients, image, handleClose 
                                 </div>
 
                                 <div className='flex-between mt-6'>
-                                    <Link href={`/`} target="_blank" className='bg-blue-600 px-4 py-2 text-white rounded-xl'>
-                                        Original Recipe
-                                    </Link>
+                                    <button href={`/`} className='bg-purple-600 px-4 py-2 text-white rounded-xl'>
+                                        Edit
+                                    </button>
 
-                                    <button className={`bg-yellow-500 px-4 py-2 text-white rounded-xl`}>
-                                        Save recipe
+                                    <button onClick={handleDelete} className={`bg-red-500 px-4 py-2 text-white rounded-xl`}>
+                                        Delete
                                     </button>
                                 </div>
                             </div>

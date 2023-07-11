@@ -4,7 +4,7 @@ import Image from "next/image"
 import { useState } from "react"
 import RecipeModalEdit from "./RecipeModalEdit"
 
-const RecipeCard = ({ image, title, ingredients, instructions }) => {
+const RecipeCard = ({ image, title, ingredients, instructions, recipeId, refresh }) => {
     const [isShowing, setIsShowing] = useState(false)
 
     return (
@@ -25,7 +25,7 @@ const RecipeCard = ({ image, title, ingredients, instructions }) => {
             </div>
         </div>
 
-        {isShowing && <RecipeModalEdit title={title} image={image} ingredients={ingredients} instructions={instructions} handleClose={() => setIsShowing(false)} />}
+        {isShowing && <RecipeModalEdit title={title} image={image} ingredients={ingredients} instructions={instructions} recipeId={recipeId} refresh={refresh} handleClose={() => setIsShowing(false)} />}
         </>
     )
 }
