@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <Provider>
-        <body className="p-3 h-screen bg-gradient-to-b from-stone-100 to-stone-300 bg-cover flex flex-col">
+        <body className="p-3 min-h-screen h-full bg-gradient-to-b from-stone-100 to-stone-300 bg-cover flex flex-col">
 
           <Nav />
 
