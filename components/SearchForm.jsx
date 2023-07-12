@@ -61,7 +61,7 @@ const SearchManufacturer = () => {
     return (
         <>
             {session?.user ?
-                <form className='mt-14 flex-center gap-12' onSubmit={handleSubmit}>
+                <form className='mt-14 flex-center gap-12 max-sm:flex-col' onSubmit={handleSubmit}>
                     <div className='flex-center flex-col gap-2'>
                         <label htmlFor="query" className='font-extrabold font-inter text-stone-600 text-xl'>Recipe description</label>
                         <input id="query" className='search-cuisine__input' placeholder="Egs: chicken, pizza, pasta etc." type="text" value={query} onChange={(e) => setQuery(e.target.value)} />

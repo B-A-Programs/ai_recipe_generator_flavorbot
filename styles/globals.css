@@ -16,19 +16,19 @@ body {
 }
 /* Tailwind Styles */
 .sign_out_btn {
-  @apply w-36 gap-4 h-12 rounded-full bg-orange-500 py-1.5 px-5 text-stone-200 hover:text-orange-500 hover:font-extrabold  hover:bg-white text-base font-bold transition-all text-center font-inter flex items-center justify-center;
+  @apply md:w-36 w-28 gap-4 md:h-14 h-8 rounded-full bg-orange-500 py-1.5 px-5 text-stone-200 hover:text-orange-500 hover:font-extrabold  hover:bg-white md:text-base text-xs font-bold transition-all text-center font-inter flex items-center justify-center;
 }
 
 .sign_in_btn {
-  @apply w-36 gap-4 h-12 rounded-full bg-orange-500 text-white py-1.5 px-5 hover:text-orange-500 hover:bg-stone-100 hover:font-extrabold text-base font-bold transition-all text-center font-inter flex items-center justify-center;
+  @apply md:w-36 w-28 gap-4 md:h-14 h-8 rounded-full bg-orange-500 text-white py-1.5 px-5 hover:text-orange-500 hover:bg-stone-100 hover:font-extrabold md:text-base text-xs font-bold transition-all text-center font-inter flex items-center justify-center;
 }
 
 .desc {
-  @apply text-lg text-gray-500 font-inter font-semibold py-6;
+  @apply lg:text-lg text-base text-center text-gray-500 font-inter font-semibold py-6;
 }
 
 .head_text {
-  @apply text-black font-extrabold text-6xl;
+  @apply text-black font-extrabold lg:text-6xl text-4xl;
 }
 
 .orange_gradient {

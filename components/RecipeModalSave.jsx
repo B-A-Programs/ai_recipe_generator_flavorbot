@@ -61,7 +61,7 @@ const RecipeModalSave = ({ recipe, setRecipe, setMessage }) => {
                         enterFrom="opacity-0 scale-95" enterTo="opacity-100 scale-100" leave="ease-in duration-200"
                         leaveFrom="opacity-100 scale-100" leaveTo="opacity-0 scale-95"
                     >
-                        <Dialog.Panel className="relative w-1/2 overflow-x-auto max-h-[90vh] overflow-y-auto tarnsform rounded-2xl bg-white p-6 text-left shadow-gray-500 shadow-xl transition-all flex flex-col gap-5">
+                        <Dialog.Panel className="relative md:w-1/2 w-full overflow-x-auto max-h-[90vh] overflow-y-auto tarnsform rounded-2xl bg-white p-6 text-left shadow-gray-500 shadow-xl transition-all flex flex-col gap-5">
                             <button type="button" onClick={() => setRecipe([])} className='absolute top-2 right-2 z-10 w-fit p-2 bg-amber-500 rounded-full'>
                                 <Image src="/close.png" alt="close" width={20} height={20} className='object-contain' />
                             </button>

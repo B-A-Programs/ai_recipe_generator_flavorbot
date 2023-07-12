@@ -9,7 +9,7 @@ const RecipeModalEdit = ({ title, instructions, ingredients, image, handleClose,
   const [isEditing, setIsEditing] = useState(false)
 
   const handleDelete = async () => {
-    fetch(`/api/recipe/delete`, {
+    await fetch(`/api/recipe/delete`, {
         method: "POST",
         body: JSON.stringify({recipeId: recipeId }),
     })
@@ -36,7 +36,7 @@ const RecipeModalEdit = ({ title, instructions, ingredients, image, handleClose,
                         enterFrom="opacity-0 scale-95" enterTo="opacity-100 scale-100" leave="ease-in duration-200"
                         leaveFrom="opacity-100 scale-100" leaveTo="opacity-0 scale-95"
                     >
-                        <Dialog.Panel className="relative w-1/2 overflow-x-auto max-h-[90vh] overflow-y-auto tarnsform rounded-2xl bg-white p-6 text-left shadow-gray-500 shadow-xl transition-all flex flex-col gap-5">
+                        <Dialog.Panel className="relative md:w-1/2 w-full overflow-x-auto max-h-[90vh] overflow-y-auto tarnsform rounded-2xl bg-white p-6 text-left shadow-gray-500 shadow-xl transition-all flex flex-col gap-5">
                             <button type="button" onClick={handleClose} className='absolute top-2 right-2 z-10 w-fit p-2 bg-amber-500 rounded-full'>
                                 <Image src="/close.png" alt="close" width={20} height={20} className='object-contain' />
                             </button>

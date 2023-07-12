@@ -33,7 +33,7 @@ const EditRecipeForm = ({ preTitle, finalizeEdit, preInstructions, preIngredient
                         enterFrom="opacity-0 scale-95" enterTo="opacity-100 scale-100" leave="ease-in duration-200"
                         leaveFrom="opacity-100 scale-100" leaveTo="opacity-0 scale-95"
                     >
-                        <Dialog.Panel className="relative w-1/2 overflow-x-auto max-h-[90vh] overflow-y-auto tarnsform rounded-2xl bg-white p-6 text-left shadow-gray-500 shadow-xl transition-all flex flex-col gap-5">
+                        <Dialog.Panel className="relative md:w-1/2 w-full overflow-x-auto max-h-[90vh] overflow-y-auto tarnsform rounded-2xl bg-white p-6 text-left shadow-gray-500 shadow-xl transition-all flex flex-col gap-5">
                             <button type="button" onClick={handleClose} className='absolute top-2 right-2 z-10 w-fit p-2 bg-amber-500 rounded-full'>
                                 <Image src="/close.png" alt="close" width={20} height={20} className='object-contain' />
                             </button>
@@ -64,7 +64,7 @@ const EditRecipeForm = ({ preTitle, finalizeEdit, preInstructions, preIngredient
                                         <Image src='/check.png' width={20} height={20} alt="check icon" /> Save edit
                                     </button>
 
-                                    <p className='text-gray-500'><b>Hint:</b> use <a href="https://www.markdownguide.org/" className='text-blue-400 underline'>markup language</a> to format instructions, step by step.</p>
+                                    <p className='text-gray-500 max-sm:hidden'><b>Hint:</b> use <a href="https://www.markdownguide.org/" className='text-blue-400 underline'>markup language</a> to format instructions, step by step.</p>
 
                                     <button onClick={handleDelete} className={`bg-red-500 px-4 py-2 text-white rounded-xl flex-center gap-2`}>
                                         <Image src='/trash.png' width={20} height={20} alt="trash icon" /> Delete
