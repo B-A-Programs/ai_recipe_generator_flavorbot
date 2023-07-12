@@ -61,12 +61,12 @@ const RecipeModalEdit = ({ title, instructions, ingredients, image, handleClose,
                                 </div>
 
                                 <div className='flex-between mt-6'>
-                                    <button onClick={() => setIsEditing(true)} className='bg-purple-600 px-4 py-2 text-white rounded-xl'>
-                                        Edit
+                                    <button onClick={() => setIsEditing(true)} className='bg-purple-600 px-4 py-2 text-white rounded-xl flex-center gap-2'>
+                                        <Image src='/edit.png' width={20} height={20} alt="edit icon" /> Edit
                                     </button>
 
-                                    <button onClick={handleDelete} className={`bg-red-500 px-4 py-2 text-white rounded-xl`}>
-                                        Delete
+                                    <button onClick={handleDelete} className={`bg-red-500 px-4 py-2 text-white rounded-xl flex-center gap-2`}>
+                                        <Image src='/trash.png' width={20} height={20} alt="trash icon" /> Delete
                                     </button>
                                 </div>
                             </div>
