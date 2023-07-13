@@ -25,6 +25,10 @@ const SearchManufacturer = () => {
 
     const initRecipe = async () => {
         let response
+
+        if(query === "")
+            response = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.NEXT_PUBLIC_SPOONACULAR_API_KEY}&query=a&number=6&addRecipeInformation=true&cuisine=${cuisine}`)
+
         if(cuisine === "") 
             response = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.NEXT_PUBLIC_SPOONACULAR_API_KEY}&query=${query}&number=6&addRecipeInformation=true`)
         else
@@ -47,8 +51,8 @@ const SearchManufacturer = () => {
         e.preventDefault();
         setMessage('');
 
-        if (query === "") {
-            setMessage('Please fill in the recipe field the fields.');
+        if (query === "" && cuisine === "") {
+            setMessage('Please fill in at least one search field.');
             return;
         }
 

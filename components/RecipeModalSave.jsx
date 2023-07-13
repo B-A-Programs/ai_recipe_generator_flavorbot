@@ -90,9 +90,15 @@ const RecipeModalSave = ({ recipe, setRecipe, setMessage }) => {
                                         Original Recipe
                                     </Link>
 
-                                    <button onClick={handleSave} className={`${saved ? 'bg-green-600' : 'bg-yellow-500'} px-4 py-2 text-white rounded-xl flex-center gap-2`}>
-                                        <Image src='/check.png' width={20} height={20} alt="check icon" />{saved ? "Saved!" : "Save Recipe"}
+                                    {!saved?
+                                    <button onClick={handleSave} className='bg-yellow-500 px-4 py-2 text-white rounded-xl flex-center gap-2'>
+                                        <Image src='/check.png' width={20} height={20} alt="check icon" />Save Recipe
                                     </button>
+                                    :
+                                    <button className='bg-green-600 px-4 py-2 text-white rounded-xl flex-center gap-2'>
+                                        <Image src='/check.png' width={20} height={20} alt="check icon" />Saved
+                                    </button>
+                                    }   
                                 </div>
                             </div>
                         </Dialog.Panel>
