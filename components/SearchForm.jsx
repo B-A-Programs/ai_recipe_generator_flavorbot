@@ -24,25 +24,21 @@ const SearchManufacturer = () => {
         ))
 
     const initRecipe = async () => {
-        let response
 
-        if(query === "")
-            response = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.NEXT_PUBLIC_SPOONACULAR_API_KEY}&query=a&number=6&addRecipeInformation=true&cuisine=${cuisine}`)
+        const response = await fetch('/api/apirecipe', {
+            method: 'POST',
+            body: JSON.stringify({ cuisine: cuisine, query: query }),
+        })
 
-        if(cuisine === "") 
-            response = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.NEXT_PUBLIC_SPOONACULAR_API_KEY}&query=${query}&number=6&addRecipeInformation=true`)
-        else
-            response = await fetch(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.NEXT_PUBLIC_SPOONACULAR_API_KEY}&query=${query}&number=6&addRecipeInformation=true&cuisine=${cuisine}`)
+        const jsonResponse = await response.json()
 
-        const result = await response.json()
+        const result = jsonResponse.response
 
-        if(result.results.length === 0) {
+        if(await result.results.length === 0) {
             setMessage('No results found. Please try again.')
             setRecipe([])
             return;
         }
-
-        console.log(await result)
 
         setRecipe(await result.results[(Math.floor(Math.random() * result.results.length))])
     }
