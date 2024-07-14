@@ -1,34 +1,59 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# FlavorBot
 
-## Getting Started
+FlavorBot is a recipe management application designed to help users discover, save, and organize recipes based on their preferences. With FlavorBot, users can search for recipes by specifying the recipe's name and/or cuisine, save their favorite recipes, and access them later, also being able to edit them.
 
-First, run the development server:
+## Website
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+https://flavourbot-6928330ae8c4.herokuapp.com/
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Features
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- **Recipe Search**: Users can search for recipes by specifying the recipe's name and/or cuisine, making it easy to find recipes tailored to their preferences.
+- **Recipe Saving**: Users can save recipes they like, allowing them to create a personalized collection of favorite recipes for easy access.
+- **Recipe Editing**: Saved recipes can be edited later, allowing users to customize them based on their preferences or dietary restrictions.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Tech Stack
 
-## Learn More
+- **Framework**: Next.js
+- **User Management**: NextAuth
+- **Database**: MongoDB
+- **ORM**: Mongoose
+- **UI Design**: Headless UI
 
-To learn more about Next.js, take a look at the following resources:
+## Installation
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Clone the repository:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   ```git clone https://github.com/yourusername/ai_recipe_generator_flavorbot```
 
-## Deploy on Vercel
+2. Navigate to the project directory:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+   ```cd ai_recipe_generator_flavorbot```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+3. Install dependencies:
+
+   ```npm install```
+
+4. Set up environment variables:
+
+   ~~~
+   MONGODB_URI=your-uri
+
+   GOOGLE_ID=your-google-id
+   GOOGLE_CLIENT_SECRET=your-secret
+  
+   NEXTAUTH_URL=http://localhost:3000
+   NEXTAUTH_URL_INTERNAL=http://localhost:3000
+   NEXTAUTH_SECRET=your-secret
+  
+   NEXT_PUBLIC_SPOONACULAR_API_KEY=your-api-key
+   ~~~
+5. Run the development server:
+
+   ```npm run dev```
+
+6. Open your browser and navigate to `http://localhost:3000` to access FlavorBot.
+
+## Contributing
+
+Contributions are welcome! If you'd like to contribute to FlavorBot, please fork the repository and submit a pull request with your changes.
